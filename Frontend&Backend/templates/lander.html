@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+      body{
+        font-family: "Mukta", sans-serif;
+      }
+      /*Modal CSS*/
+      .p-c{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
+      }
+      .custom-modal .modal-dialog {
+        max-width: 380px; /* Adjust the maximum width of the modal */
+      }
+      .custom-modal .modal-content {
+        padding: 20px; /* Add padding to the modal content */
+      }
+      .modal-header{
+          border-bottom: none;
+      }
+      .no-outline:focus {
+        outline: none; /* Remove focus border */
+      }
+      .custom-modal1{
+          position: relative;
+          left: 116px;
+          font-size: xx-large;
+          font-weight: 500;
+      }
+      #inputbox{
+          width: 250px;
+          height: 40px;
+          border-radius: 10px;
+          border: 2px solid rgb(145, 145, 145);
+      }
+      .btn1{
+          width: 250px;
+          height: 40px;
+          background-color: #2cd3af;
+          border: none;
+          color: white;
+      }
+      @media only screen and (max-width: 320px) {
+        .custom-modal1{
+            position: relative;
+            left: 70px;
+            font-size: x-large;
+            font-weight: 500;
+        }
+        #inputbox{
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid rgb(145, 145, 145);
+        }
+        .btn1{
+            width: 200px;
+            padding: 10px;
+            background-color: #2cd3af;
+            border: none;
+            color: white;
+        }
+      }
+      /*Modal CSS complete*/
+        @media screen and (min-width: 1000px)
+        {
+          /* .about{
+            margin-left: 50px;
+        } */
+          .maindiv{
+            background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.0)), url(https://blog.medicalgps.com/wp-content/uploads/2017/02/ING_33594_301853.jpg);
+            background-size: 60% 100%, cover; /* Adjust the first value to control the size of the gradient */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          }
+          .btn{
+              margin: 5px;
+              /* border-radius: 20px; */
+          }
+          .btn-worker{
+              background-color: #2cd3af;
+              border-color: #2cd3af;
+          }
+          .btn-worker:hover{
+            background-color: #0e997b;
+            border-color: #0e997b;
+          }
+          .btn2:hover{
+              background-color: #4365de;
+              border-color: #4365de;
+          }
+          .cont1{
+            height: 490px;
+            width: 100%;
+          }
+          .mediface-img{
+            margin-left: 50px;
+            /* height: 200px;
+            width: 200px; */
+          }
+          .footer{
+            width: 100%;
+            height: 250px;
+        }
+      }
+      @media screen and (max-width:500px){
+        .col-12{
+          text-align: center;
+        }
+      }
+      .description{
+        font-size: 30px;
+      }
+      .mediface{
+        color: #2cd3af;
+        font-weight: bold;
+        padding: 2px;
+      }
+      .card{
+        /* width: 18rem; */
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        padding: 20px;
+        margin: 0 10px;
+      }
+      .card-img-top{
+        object-fit: contain;
+      }
+      
+      .sec-1,.sec-2,.sec-3,.sec-4 .animate{
+          transition: 1s;
+      }
+      .sec-1,.sec-2,.sec-3,.sec-4 .animate{
+          transform: scale(.8);
+      }
+      .sec-1.show-animate,.sec-2.show-animate,.sec-3.show-animate,.sec-4.show-animate .animate{
+          transform: scale(1);
+      }
+
+        .col-md-8{
+            display: flex;
+            align-items: center;
+        }
+        @media only screen and (max-width:973px){
+          .logoimage{
+              width: 160px;
+              height: 70px;
+          }
+        }
+        .animate {
+            transition: transform 1s;
+            transform: scale(.8);
+        }
+        .show-animate .animate {
+            transform: scale(1);
+        }
+        .close{
+            border: none;
+            background-color:white;
+            font-size: x-large;
+            color: grey;
+        }
+        .close:hover{
+          color: black;
+        }
+        /*Second*/
+        .mediface-intro{
+          font-size: 20px;
+          /* display: flex;
+          justify-content: center;
+          align-items: center; */
+        }
+        .features-points{
+          list-style-type: none;
+        }
+        .features-points li::before{
+          content: "\2713";
+          /* color: #; */
+          margin-right: 0.5em;
+        }
+        .footer{
+          background-color: rgb(221, 221, 221);
+          border-radius: 50% 50% 0 0;
+        }
+        .card-title{
+          color: #4365de;
+          font-weight: bold;
+        }
+        .btn1{
+            /* width: 200px; */
+            padding: 10px;
+            background-color: #2cd3af;
+            border: none;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+  <!--Alert-->
+  <div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-dismissible fade show alert-{{ category }}" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="maindiv">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a href="https://ibb.co/gPx0B5k"><img src="https://i.ibb.co/WPLrYbm/Mediface-logo.png" alt="Mediface-logo" border="0" height="80px" width="190px"></a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item about">
+                <a class="nav-link active ms-md-3" aria-current="page" href="#about">Home</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Features
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#features">Face Recognition</a></li>
+              <li><a class="dropdown-item" href="#features">Digitalized Test Reports</a></li>
+              <li><a class="dropdown-item" href="#features">Explore Medicinal Details</a></li>
+              <li><a class="dropdown-item" href="#features">Store Medical History</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#foot">Contact Us</a>
+          </li>
+        </ul>
+          <button type="button" class="btn btn-primary btn-worker" data-toggle="modal" data-target="#exampleModalCenter">Worker Login</button>
+          <button type="button" class="btn btn-outline-primary btn2" data-bs-toggle="button">Patient Login</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container cont1">
+    <div class="row">
+        <div class="col-12 col-md-6 pt-5">
+            <h1 style="color: #4365de; font-weight: bold;">Revolutionizing Patient Care</h1>
+            <span class="description">Introducing <span class="mediface">MediFace</span>, <br>
+            the Cutting-Edge Appointment Management System <br>
+            enhanced with Face Recognition Technology</span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--Second-->
+  <div class="container-fluid mt-5" id="about">
+    <div class="row">
+      <div class="col mediface-img">
+        <img src="https://img.freepik.com/free-photo/medium-shot-nurse-holding-patient-s-hand_23-2148894873.jpg?t=st=1714541215~exp=1714544815~hmac=1e7b1cb801d67a9dd4faddd1b48a21b0fe6bdd3e7638d0532529f9b174422453&w=740" height="500px" width="500px" >
+      </div>
+      <div class="col mediface-intro">
+        <h3 style="color: #4365de; font-size: 30px;">Unlock the Potential of Healthcare Technology with MediFace</h3><br>
+        <!-- An innovative appointment management system integrating state-of-the-art Face Recognition Technology for streamlined scheduling and enhanced security measures. -->
+        Using MediFace can simplify and enhance your medical journey by providing convenient and user-friendly features for managing appointments and medical records.
+        <br><br>
+        <ul class="features-points">
+          <li>Face Recognition</li>
+          <li>Digitalized Test Reports</li>
+          <li>Explore Medication Details</li>
+          <li>Store Medical History</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--Third-Cards-->
+<h4 class="mt-5 ms-5">Discover the functionalities offered by MediFace</h4>
+  <div class="card-group anim sec-2 m-3 text-center" id="features">
+  <div class="card animate m-3">
+    <img src="https://bi.com/wp-content/uploads/2021/10/blog-understanding-biometric-facial-technology-768x512.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Face Recognition</h5>
+      <p class="card-text">Register your face and make appointments faster by scaning your face using Face Recognition in upcoming visits. Hence, Face Recognition makes your appointments with doctor more faster, easier and simpler.</p>
+    </div>
+  </div>
+  <div class="card animate m-3">
+    <img src="https://imageio.forbes.com/specials-images/imageserve/61950a8ee641592d77357fd1/Healthcare-business-concept--Medical-examination-and-growth-graph-data-of-business-on/960x0.jpg?height=473&width=711&fit=bounds" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Digitalized Test Reports</h5>
+      <p class="card-text">Digitalized Test Reports refers to the conversion of physical or analog test reports into digital formats, allowing for easy storage, retrieval, and sharing of medical or diagnostic information.</p>
+    </div>
+  </div>
+  <div class="card animate m-3">
+    <img src="https://static1.squarespace.com/static/5f64c5c0089e7a2b75f39878/6017b94b45eb9438ae60f0d2/60e595a8be1a8f5a7f8b82a0/1625659202539/shutterstock_1898898127.jpg?format=1500w" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Explore Medication Details</h5>
+      <p class="card-text">Manage and monitor all your medical information including dosage, frequency, prescribed duration and any other relevant details, for personal reference or healthcare management.</p>
+    </div>
+  </div>
+  <div class="card animate m-3">
+    <img src="https://yourfamilymedical.com/wp-content/uploads/2022/11/Learn-More-About-Your-Familys-Medical-History.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Store Medical History</h5>
+      <p class="card-text">Maintain a comprehensive record of all past medical information, including diagnoses, treatments, medications, and other relevant details, for personal reference or healthcare management.</p>
+    </div>
+  </div>
+  </div>
+
+<div>
+  <!-- <section class="container anim sec-2">
+    <div class="row animate">
+        <div class="col-md-4">
+            <img src="https://bi.com/wp-content/uploads/2021/10/blog-understanding-biometric-facial-technology-768x512.jpg" class="img-fluid" alt="Sample Image">
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card Title</h5>
+                    <p class="card-text">This is a sample card body placed on the right side. You can add any content here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<section class="container anim sec-2">
+  <div class="row animate">
+      <div class="col-md-4">
+          <img src="https://bi.com/wp-content/uploads/2021/10/blog-understanding-biometric-facial-technology-768x512.jpg" class="img-fluid" alt="Sample Image">
+      </div>
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Card Title</h5>
+                  <p class="card-text">This is a sample card body placed on the right side. You can add any content here.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+</div> -->
+
+
+<!-- Modal -->
+<div class="modal fade custom-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title custom-modal1 text-center" id="exampleModalLongTitle">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px;">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body text-center">
+          <form action="{{ url_for('lander')}}" method="post">
+              <div class="p-c ">
+                <div><input id="username" placeholder="Username" name="username" ></div><br>
+                <div><input id="password" placeholder="Password" name="pswd" type="password"></div><br>
+                <p id="signuptext"><input type="checkbox" id="hide">Show Password</p>
+                <button class="btn1" type="submit">Login</button></div><br>
+                    <p class="text-center"><a href="#">Forgot password ?</a></p><br>
+                    <p class="text-center">Don't have an account <a href="#">Signup</a></p>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+  <footer class="footer p-5" id="foot">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <a href="https://ibb.co/gPx0B5k"><img src="https://i.ibb.co/WPLrYbm/Mediface-logo.png" alt="Mediface-logo" border="0" height="80px" width="190px"></a>
+        </div>
+        <div class="col-12 col-md-5"> 
+          <h5>About Us</h5> 
+          <p> 
+            MediFace can simplify and enhance your medical journey by providing convenient and user-friendly features for managing appointments and medical records.
+         </p> 
+      </div>
+      <div class=" col-12 col-md-3"> 
+        <h5>Contact Us</h5> 
+        <ul class="list-unstyled"> 
+            <li>Email: info@example.com</li> 
+            <li>Phone: +1233567890</li> 
+            <li>Address: 123 Street, City, Country</li> 
+        </ul> 
+      </div> 
+      
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!--Modal Functionality-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    let sections = document.querySelectorAll('.anim');
+    window.onscroll = () => {
+        sections.forEach(sec =>{
+            let top = window.scrollY;
+            let offset = sec.offsetTop - 175;
+            let height = sec.offsetHeight;
+            if(top >= offset && top < offset + height){
+                sec.classList.add('show-animate');
+            }
+            else{
+                sec.classList.remove('show-animate');
+            }
+        })
+    }
+    document.getElementById("hide").addEventListener('click', () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+    });
+    // function myFunction() {
+    //   var x = document.getElementsByClassName(".myInput");
+    //   if (x.type === "password") {
+    //       x.type = "text";
+    //   } else {
+    //       x.type = "password";
+    //   }
+    // }
+  </script>
+</body>
+</html>
