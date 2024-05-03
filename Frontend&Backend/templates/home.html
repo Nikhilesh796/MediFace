@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+        body{
+          font-family: "Mukta", sans-serif;
+        }
+        .navheight{
+          height: 80px;
+          /* background-color: aqua; */
+        }
+        .maindiv{
+          /* background-image: url(https://img.freepik.com/premium-photo/abstract-blur-hospital-interior-corridor-background-with-defocused-effect_441990-15533.jpg?w=1060); */
+
+          /* background-image: url(https://img.freepik.com/premium-photo/healthcare-clipboard-man-nurse-writing-hospital-planning-schedule-checklist-doctor-documents-male-health-expert-with-file-medical-compliance-life-insurance-paperwork_590464-222750.jpg?w=1380); */
+          
+          background-image: linear-gradient(to right,rgba(255,255,255,0.95),rgba(255,255,255,0)),url(https://i.ibb.co/g3thy96/Screenshot-156.png);
+          background-repeat: no-repeat;
+          background-size: 60% 100%, cover;
+          height: 100vh;
+        }
+        @media screen and (min-width: 1000px){
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 0,
+              'wght' 400,
+              'GRAD' 0,
+              'opsz' 24
+            }
+            .material-symbols-outlined {
+                /* position: absolute;
+                top: 50vh;
+                left: 160px; */
+                background-color: rgb(215,215,215);
+                border-radius: 50px;
+                /* padding: 3px; */
+                cursor: pointer;
+                transition: left 0.3s ease;
+            }
+            
+            .footer{
+              width: 100%;
+              /* height: 250px; */
+              background-color: rgb(221, 221, 221);
+              border-radius: 50% 50% 0 0;
+            }
+        }
+        .col-2.nav-wrapper {
+            overflow: hidden;
+        }
+        #colnav {
+          transition: margin-left 0.3s ease; /* Transition margin changes */
+        }
+        #widget{
+          background-color: #2cd3af;
+          border-radius: 0 50% 50% 0;
+          padding: 5px;
+          font-size: 30px;
+        }
+        .profile{
+          font-size: 40px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 10px;
+            /* border: 1px solid black; */
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover{
+          background-color: #344da7;
+          color: white;
+        }
+        .material-symbols-outlined {
+            margin-right: 10px; /* Adjust as needed */
+        }
+        .col-header{
+          font-weight: bold;
+          font-size: 45px;
+          color: #4365de;
+        }
+        .col-body{
+          font-size: 25px;
+          /* text-shadow: 1px 1px 4px rgb(85, 84, 84); */
+        }
+        .navbar-options{
+          display: flex;
+          justify-content: flex-end;
+        }
+        
+      @media screen and (max-width:500px){
+        .navbar-collapse{
+          background-color: white;
+        }
+      }
+      .card{
+        /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+        
+      }
+      .features{
+        background-color: #2cd3af;
+        border: none;
+        color: white;
+      }
+      .features:hover{
+        background-color: #1aad8d;
+        color: white;
+      }
+      .sidenav a{
+        color: black;
+      }
+      .patient-intro-img img{
+        object-fit: contain;
+      }
+      .patient-registration{
+        background-color: #4365de;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+  <div class="maindiv">
+    <!--Alert-->
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-dismissible fade show alert-{{ category }}" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+        <nav class="navbar navbar-expand-lg navheight">
+          <div class="container-fluid">
+              <img src="https://i.ibb.co/WPLrYbm/Mediface-logo.png" alt="Mediface-logo" border="0" height="80px" width="190px">
+              
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item navbar-options">
+                      <a class="nav-link active ms-md-3" aria-current="page" href="#">Home</a>
+                  </li>
+                <li class="nav-item navbar-options">
+                  <a class="nav-link active" aria-current="page" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown navbar-options">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Features
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#features">Face Recognition</a></li>
+                    <li><a class="dropdown-item" href="#features">Digitalized Test Reports</a></li>
+                    <li><a class="dropdown-item" href="#features">Explore Medicinal Details</a></li>
+                    <li><a class="dropdown-item" href="#features">Store Medical History</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item navbar-options">
+                  <a class="nav-link active" href="#foot">Contact Us</a>
+                </li>
+              </ul>
+              
+              <form class="form-inline my-2 my-lg-0 nav-item navbar-options">
+                <button class="btn patient-registration me-3">Book an appointment</button>
+                <a href="/profile"><img width="40" height="40" src="https://img.icons8.com/material-outlined/48/user-male-circle.png" alt="user-male-circle"/></a>
+              </form>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <!-- <span class="material-symbols-outlined mt-4" id="widget" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+          widgets
+          </span> -->
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-12 col-md-7">
+                <p class="col-header">Hi {{name}}!!!</p>
+                <p class="col-body">Experience Seamless <span style="font-weight: bold; color: #2cd3af;">Appointment Management, HealthTrack with MediFace</span><br>
+                  Easily book appointments and safely store your medical records for enhanced convenience.
+                  Streamline Your Healthcare Journey with our Patient-Centric Approach</p>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+      <!-- <span class="material-symbols-outlined mt-4" id="widget" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        menu
+        </span> --> 
+    <div class="card-group m-5 text-center" id="features">
+      <div class="card m-3 ">
+        <div class="card-body">
+          <img src="https://img.freepik.com/premium-vector/health-check-report-icon-cartoon-illustration_430232-123.jpg?w=360" height="200px" width="200px">
+          <p class="card-text">
+            View and retrieve digitalized test reports conveniently and remotely, regardless of location or time.
+          </p>
+          <center><button class="btn features">View Test Reports</button></center>
+        </div>
+      </div>
+      <div class="card m-3">
+        <div class="card-body">
+          <img src="https://img.freepik.com/premium-photo/medicine-bottle-colorful-pills_785361-341.jpg?w=740" height="200px" width="200px">
+          <p class="card-text">
+            Manage and monitor all your medical information including dosage, frequency, prescribed duration.
+          </p>
+          <center><button class="btn features">View Medication Details</button></center>
+        </div>
+      </div>
+    
+      <div class="card m-3 pb-3">
+        <div class="card-body">
+          <img src="https://thumbs.dreamstime.com/b/medical-history-vector-icon-concept-patient-disease-health-examination-digital-card-paper-list-information-ill-doctor-237574792.jpg" height="200px" width="200px">
+          <p class="card-text">
+            Maintain a comprehensive record of all your past medical information and other relevant details.
+          </p>
+          <center><button class="btn features">View Medical History</button></center>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-5 p-5" id="foot">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <img src="https://i.ibb.co/WPLrYbm/Mediface-logo.png" alt="Mediface-logo" border="0" height="80px" width="190px">
+          </div>
+          <div class="col-12 col-md-5"> 
+            <h5>About Us</h5> 
+            <p> 
+              MediFace can simplify and enhance your medical journey by providing convenient and user-friendly features for managing appointments and medical records.
+           </p> 
+        </div> 
+        <div class=" col-12 col-md-3"> 
+          <h5>Contact Us</h5> 
+          <ul class="list-unstyled"> 
+              <li>Email: info@example.com</li> 
+              <li>Phone: +1233567890</li> 
+              <li>Address: 123 Street, City, Country</li> 
+          </ul> 
+      </div> 
+      
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
