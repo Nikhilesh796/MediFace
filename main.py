@@ -6,10 +6,6 @@ from bson.objectid import ObjectId
 from datetime import datetime
 import base64
 
-
-
-
-
 app = Flask(__name__)
 app.secret_key = "21pa1a1286@2025"
 
@@ -28,18 +24,6 @@ logincol = logindb["User-details"]
 
 # d = list(patientcol.find().sort("date", pymongo.ASCENDING))
 # print(d)
-
-
-
-
-
-
-    
-
-   
-
-
-
 
 # Lander
 @app.route("/",methods=['GET','POST'])
