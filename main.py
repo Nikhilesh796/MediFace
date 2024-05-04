@@ -22,6 +22,7 @@ logindb = myclient["Authentication"]
 receptionistcol = logindb["User-details"]
 data_entry_op_col = logindb["Data-entry-op-details"]
 
+
 # d = list(patientcol.find().sort("date", pymongo.ASCENDING))
 # print(d)
 
@@ -127,20 +128,17 @@ def mform():
     return render_template("form_medicine.html")
 
 
-# Test reports form
-@app.route('/tform')
-def tform():
+@app.route('/testreports_form')
+def index():
     return render_template('form_testreports.html')
 
 def b64encode_filter(content):
     return base64.b64encode(content).decode('utf-8')
 app.jinja_env.filters['b64encode'] = b64encode_filter
 
-
-# Test Reports Upload
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    patient_id = request.form.get('patient_id')
+    patient_id = request.form['patient_id']
     if 'file' not in request.files:
         return 'No file part in the request'
     file = request.files['file']
@@ -152,21 +150,20 @@ def upload_file():
         # Encode the file content as Base64
         encoded_content = base64.b64encode(file_content)
         # Insert the encoded content into MongoDB
-        testreports_col.insert_one({'patient_id': patient_id,'filename': file.filename, 'content': encoded_content})
-        flash("Test Reports Uploaded","success")
-        return redirect(url_for("dmain",username=session.get('user')))
+        testreports_col.insert_one({'patient_id': patient_id ,'filename': file.filename, 'content': encoded_content})
+        return 'File uploaded successfully'
+    
 
-
-# Test Reports Retrieval
 @app.route('/reports')
 def list_files():
-    files = testreports_col.find()
+    files = testreports_col.find()  # Query MongoDB for files associated with the patient ID
     decoded_files = []
     for file in files:
         decoded_content = base64.b64decode(file['content'])
-        decoded_files.append({'filename': file['filename'], 'content': decoded_content})
+        decoded_files.append({'patient_id': file['patient_id'], 'filename': file['filename'], 'content': decoded_content})
     # Pass the decoded files to the HTML template
     return render_template('testreports.html', files=decoded_files)
+
 
 # Logout
 @app.route("/logout")
