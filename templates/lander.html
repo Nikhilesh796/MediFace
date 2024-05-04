@@ -48,7 +48,7 @@
           background-color: #2cd3af;
           border: none;
           color: white;
-      }
+      } 
       @media only screen and (max-width: 320px) {
         .custom-modal1{
             position: relative;
@@ -198,8 +198,8 @@
           font-weight: bold;
         }
         .btn1{
-            /* width: 200px; */
-            padding: 10px;
+            width: 210px;
+            padding: 5px;
             background-color: #2cd3af;
             border: none;
             color: white;
@@ -349,10 +349,10 @@
       <div class="modal-body text-center">
           <form action="{{ url_for('lander')}}" method="post">
               <div class="p-c ">
-                <div><input id="username" placeholder="Username" name="username" ></div><br>
-                <div><input id="password" placeholder="Password" name="pswd" type="password"></div><br>
+                <div><input id="username" placeholder="Username" name="username" class="form-control" ></div><br>
+                <div><input id="password" placeholder="Password" name="pswd" type="password" class="form-control"></div><br>
                 <p id="signuptext"><input type="checkbox" id="hide">Show Password</p>
-                <button class="btn1" type="submit">Login</button></div><br>
+                <button class="btn1" type="submit">Login</button><br>
                     <p class="text-center"><a href="#">Forgot password ?</a></p><br>
                     <p class="text-center">Don't have an account <a href="#">Signup</a></p>
               </div>
