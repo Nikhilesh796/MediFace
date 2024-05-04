@@ -349,6 +349,18 @@
       <div class="modal-body text-center">
           <form action="{{ url_for('lander')}}" method="post">
               <div class="p-c ">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="receptionist" checked>
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Receptionist Login
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="data_entry_operator">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Data Entry Operator Login
+                  </label>
+                </div>
                 <div><input id="username" placeholder="Username" name="username" class="form-control" ></div><br>
                 <div><input id="password" placeholder="Password" name="pswd" type="password" class="form-control"></div><br>
                 <p id="signuptext"><input type="checkbox" id="hide">Show Password</p>
