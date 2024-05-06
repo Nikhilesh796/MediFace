@@ -78,11 +78,21 @@
       </div>
     </div>
   </nav>
+  <center>
+    <h2>Test Reports</h2>
+  </center>
+  <ul>
+      {% for file in files %}
+      {% if file['patient_id']=="7" %}
+      <li>{{ file['filename'] }}</li>
+      <center>
+        <embed src="data:application/pdf;base64,{{ file.content | b64encode }}" type="application/pdf" width="80%" height="800px">
+      </center>
+      
+      {% endif %}
+      {% endfor %}
+  </ul>
 
-    <ul>
-        <li>{{ files[0]['filename'] }}</li>
-        <embed src="data:application/pdf;base64,{{ files[0].content | b64encode }}" type="application/pdf" width="100%" height="800px">
-    </ul>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Bootstrap JS and dependencies -->
