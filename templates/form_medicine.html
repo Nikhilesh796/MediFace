@@ -71,9 +71,6 @@
             <a class="nav-link active" href="/main">Contact Us</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 nav-item">
-          <a href="/profile.html" class=" mr-sm-2"><img width="40" height="40" src="https://img.icons8.com/material-outlined/48/user-male-circle.png" alt="user-male-circle"/></a>
-        </form>
         </form>
       </div>
     </div>
@@ -81,8 +78,12 @@
 
   
 <div class="container">
-  <h2 class="mt-5 mb-4">Patient Medicine Form</h2>
+  <h2 class="mt-5 mb-4">Patient Prescription Form</h2>
   <form action="{{ url_for('mform')}}" method="post">
+    <div class="form-group">
+      <label for="place">Patient ID:</label>
+      <input type="text" class="form-control" id="place" placeholder="Enter place" name="place" required>
+    </div>
     <div class="form-group">
       <label for="health">Medicinal Prescription:</label>
       <textarea class="form-control" id="health" rows="3" placeholder="Enter health condition" name="medicine" required></textarea>

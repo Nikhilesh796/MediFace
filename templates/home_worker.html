@@ -121,6 +121,13 @@
         background-color: #4365de;
         color: white;
       }
+      .logout{
+        border: 1px solid black;
+      }
+      .logout:hover{
+        background-color: black;
+        color: white;
+      }
     </style>
 </head>
 <body>
@@ -149,11 +156,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item navbar-options">
-                      <a class="nav-link active ms-md-3" aria-current="page" href="#">Home</a>
+                      <a class="nav-link active ms-md-3" aria-current="page" href="#">About</a>
                   </li>
-                <li class="nav-item navbar-options">
-                  <a class="nav-link active" aria-current="page" href="#">About</a>
-                </li>
                 <li class="nav-item dropdown navbar-options">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Features
@@ -169,19 +173,17 @@
                   <a class="nav-link active" href="#foot">Contact Us</a>
                 </li>
               </ul>
-              
               <form class="form-inline my-2 my-lg-0 nav-item navbar-options">
                 <div class="dropdown">
                   <button class="btn patient-registration me-3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Book an Appointment
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/form">New Patient</a></li>
-                    <li><a class="dropdown-item" href="/eform">Existing Patient</a></li>
+                    <li><a class="dropdown-item" href="/scan">New Patient</a></li>
+                    <li><a class="dropdown-item" href="/existingscan">Existing Patient</a></li>
                   </ul>
                 </div>
-                <!-- <button class="btn patient-registration me-3">Book an appointment</button> -->
-                <a href="/profile"><img width="40" height="40" src="https://img.icons8.com/material-outlined/48/user-male-circle.png" alt="user-male-circle"/></a>
+                <a href="/logout" class="btn logout">Logout</a>
               </form>
               </form>
             </div>
