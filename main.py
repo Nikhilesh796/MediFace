@@ -128,7 +128,7 @@ def mform():
     return render_template("form_medicine.html")
 
 
-@app.route('/testreports_form')
+@app.route('/tform')
 def index():
     return render_template('form_testreports.html')
 
