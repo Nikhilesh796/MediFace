@@ -316,9 +316,8 @@ def form():
         symptoms = request.form.get("symptoms")
         doctor = request.form.get('doctor')
         status = request.form.get('status')
-        current_date = datetime.now()
         patient_id = request.form.get("u_id")
-        x = patientcol.insert_one({"patient_id":patient_id,"name": name, "age": age, "gender": gender, "status":status, "place": place, "mobile_number": mobile_no, "appointment":{"0":[current_date,symptoms,doctor]}})
+        x = patientcol.insert_one({"patient_id":patient_id,"name": name, "age": age, "gender": gender, "status":status, "place": place, "mobile_number": mobile_no, "appointment":{"0":[str(datetime.now())[:10],str(datetime.now())[11:16],symptoms,doctor]}})
         flash("Appointment Booked","success")
         return redirect(url_for("wmain",username=session.get('user')))
     return render_template("form_new.html")
@@ -348,7 +347,7 @@ def eform():
         for patient_detail in patient_details_cursor:
             appointments = patient_detail.get("appointment", [])
 
-            appointments[str(len(appointments))]=[datetime.now(), health_condition, doctor]
+            appointments[str(len(appointments))]=[str(datetime.now())[:10],str(datetime.now())[11:16], health_condition, doctor]
             patientcol.update_one({"_id": patient_detail["_id"]}, {"$set": {"appointment": appointments}})
         flash("Appointment Booked","success")
         return redirect(url_for("wmain",username=session.get('user')))
@@ -358,8 +357,10 @@ def eform():
 @app.route("/mform",methods=["GET","POST"])
 def mform():
     if request.method=='POST':
+
         medicine = request.form.get("medicine")
-        med = medicinecol.insert_one({'prescription':medicine})
+        patient_id = request.form.get("id")
+        med = medicinecol.insert_one({"patient_id":patient_id,'prescription':medicine})
         flash("Prescription Uploaded","success")
         return redirect(url_for("dmain",username=session.get('user')))
     return render_template("form_medicine.html")
@@ -417,17 +418,25 @@ def logout():
 # Profile
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    patient_profile = list(patientcol.find({"patient_id":str(session.get('user'))}))
+    print(patient_profile)
+    return render_template('profile.html',patient_profile=patient_profile)
+    
+    
 
 # Prescription
 @app.route("/prescription")
 def prescription():
-    return render_template("prescription.html")
+    medicine_details = medicinecol.find_one({"patient_id":str(session.get('user'))})
+    return render_template("prescription.html",medicine_details=medicine_details)
 
 # Medical History
 @app.route("/history")
 def medical_history():
-    return render_template("medical_history.html")
+    patient_profile = patientcol.find_one({"patient_id":str(session.get('user'))})
+    print(patient_profile)
+    return render_template('medical_history.html',patient_profile=patient_profile)
+    
 
 
 # def retrieve(id):
