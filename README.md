@@ -85,7 +85,6 @@ http://127.0.0.1:5000/
 
 ## 📎 Links
 - **GitHub Repo:** [MediFace on GitHub](https://github.com/ProjectKirikiri/MediFace)
-- **YouTube Tutorials:** Relevant learning resources
 
 ### 🎯 Happy Coding! 🚀
 
